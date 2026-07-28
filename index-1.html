@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>বর্তনী একাডেমি — তোমার স্বপ্নের সার্কিট সম্পূর্ণ করি আমরা</title>
+<style>
+@import url('https://fonts.maateen.me/solaiman-lipi/font.css');
+
+:root{
+  --bg:#FFFFFF;
+  --bg-alt:#F7F6F2;
+  --card:#FFFFFF;
+  --card-line:#E6E2D8;
+  --accent:#C1740A;      /* কপার/অ্যাম্বার - সাদা থিমে গাঢ় */
+  --accent-soft:#C1740A1A;
+  --teal:#0E9488;         /* গাঢ় টিল - সাদা থিমে কনট্রাস্টের জন্য */
+  --teal-soft:#0E94881A;
+  --text:#16233B;
+  --text-dim:#5C6B85;
+  --radius:14px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'SolaimanLipi', sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+.eng{font-family:'SolaimanLipi', sans-serif;}
+.mono{font-family:'SolaimanLipi', sans-serif;}
+
+img,svg{display:block;}
+
+a{color:inherit;text-decoration:none;}
+
+/* ---------- background circuit texture ---------- */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(var(--card-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--card-line) 1px, transparent 1px);
+  background-size:42px 42px;
+  opacity:.5;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--card-line);
+}
+.header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 20px;
+  gap:16px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-weight:700;
+  font-size:1.3rem;
+  letter-spacing:.3px;
+  color:var(--text);
+}
+.logo-and-lms{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+nav.main-nav{
+  display:flex;
+  align-items:center;
+  gap:26px;
+}
+nav.main-nav a{
+  font-size:.98rem;
+  color:var(--text-dim);
+  position:relative;
+  padding:6px 2px;
+  transition:color .2s;
+  white-space:nowrap;
+}
+nav.main-nav a:hover,
+nav.main-nav a.active{color:var(--text);}
+nav.main-nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-2px;
+  height:2px;
+  background:var(--accent);
+  border-radius:2px;
+}
+.lms-btn{
+  border:1px solid var(--teal);
+  color:var(--teal);
+  padding:8px 18px;
+  border-radius:999px;
+  font-size:.9rem;
+  font-weight:500;
+  transition:.2s;
+}
+.lms-btn:hover{background:var(--teal-soft);}
+
+.burger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  padding:6px;
+}
+.burger span{width:24px;height:2px;background:var(--text);border-radius:2px;}
+
+#mobileNav{
+  display:none;
+  flex-direction:column;
+  gap:2px;
+  background:var(--bg-alt);
+  border-top:1px solid var(--card-line);
+  padding:10px 20px 16px;
+}
+#mobileNav a{
+  padding:12px 4px;
+  border-bottom:1px solid var(--card-line);
+  color:var(--text-dim);
+  font-size:1rem;
+}
+#mobileNav a.active{color:var(--accent);}
+#mobileNav .lms-btn{
+  margin-top:12px;
+  text-align:center;
+}
+
+/* ---------- hero ---------- */
+.hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:56px 20px 30px;
+  position:relative;
+  z-index:1;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.82rem;
+  letter-spacing:1px;
+  color:var(--teal);
+  border:1px solid var(--teal-soft);
+  background:var(--teal-soft);
+  padding:6px 14px;
+  border-radius:999px;
+  margin-bottom:22px;
+}
+.pulse-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--teal);
+  box-shadow:0 0 0 0 var(--teal);
+  animation:pulseDot 2s infinite;
+}
+@keyframes pulseDot{
+  0%{box-shadow:0 0 0 0 rgba(14,148,136,.4);}
+  70%{box-shadow:0 0 0 8px rgba(14,148,136,0);}
+  100%{box-shadow:0 0 0 0 rgba(14,148,136,0);}
+}
+
+h1{
+  font-size:2.15rem;
+  font-weight:700;
+  line-height:1.35;
+  max-width:820px;
+  color:var(--text);
+}
+h1 .accent-text{color:var(--accent);}
+
+.hero p.lead{
+  margin-top:18px;
+  max-width:640px;
+  color:var(--text-dim);
+  font-size:1.02rem;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px 22px;
+  margin:30px 0 34px;
+  max-width:700px;
+}
+.feature-grid li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  list-style:none;
+  font-size:.95rem;
+  color:var(--text);
+}
+.feature-grid svg{flex-shrink:0;margin-top:2px;}
+
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:13px 26px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:.98rem;
+  transition:transform .15s, box-shadow .2s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),#9c5c07);
+  color:#FFFFFF;
+  box-shadow:0 8px 20px -6px rgba(193,116,10,.4);
+}
+.btn-primary:hover{transform:translateY(-2px);}
+.btn-secondary{
+  border:1px solid var(--card-line);
+  color:var(--text);
+  background:var(--card);
+}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal);}
+
+/* ---------- slider ---------- */
+.slider-wrap{
+  max-width:1180px;
+  margin:44px auto 0;
+  padding:0 20px;
+  position:relative;
+  z-index:1;
+}
+.slider{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--card-line);
+  background:var(--bg-alt);
+}
+.slides{
+  display:flex;
+  transition:transform .55s cubic-bezier(.65,0,.35,1);
+}
+.slide{
+  min-width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:38px 34px;
+  flex-wrap:wrap;
+}
+.slide .slide-tag{
+  font-size:.75rem;
+  letter-spacing:1px;
+  color:var(--teal);
+  background:var(--teal-soft);
+  padding:5px 12px;
+  border-radius:999px;
+  display:inline-block;
+  margin-bottom:12px;
+}
+.slide h3{font-size:1.28rem;font-weight:700;color:var(--text);max-width:480px;}
+.slide p{color:var(--text-dim);font-size:.92rem;margin-top:8px;max-width:460px;}
+.slide .slide-btn{margin-top:18px;}
+.slide-visual{
+  width:150px;height:150px;
+  border-radius:50%;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+}
+.slide-visual svg{width:90px;height:90px;}
+
+.slide-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;height:38px;
+  border-radius:50%;
+  background:#FFFFFF;
+  border:1px solid var(--card-line);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  z-index:5;
+  transition:.2s;
+  box-shadow:0 4px 12px -4px rgba(22,35,59,.15);
+}
+.slide-arrow:hover{border-color:var(--accent);}
+.slide-arrow.prev{left:14px;}
+.slide-arrow.next{right:14px;}
+
+.slide-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:16px 0 20px;
+  background:var(--bg-alt);
+}
+.slide-dots button{
+  width:8px;height:8px;
+  border-radius:50%;
+  border:none;
+  background:var(--card-line);
+  cursor:pointer;
+  padding:0;
+  transition:.2s;
+}
+.slide-dots button.active{
+  background:var(--accent);
+  width:22px;
+  border-radius:4px;
+}
+
+@media (max-width:640px){
+  .slide{padding:30px 50px 26px;text-align:center;justify-content:center;}
+  .slide-visual{order:-1;width:110px;height:110px;}
+  .slide-visual svg{width:64px;height:64px;}
+  .slide p{margin-left:auto;margin-right:auto;}
+}
+
+/* ---------- square slider ---------- */
+.slider-section{
+  max-width:1180px;
+  margin:10px auto 0;
+  padding:0 20px;
+  position:relative;
+  z-index:1;
+}
+.slider{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:1/1;
+  margin:0 auto;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid var(--card-line);
+  box-shadow:0 18px 40px -22px rgba(22,35,59,.25);
+}
+.slider-track{
+  display:flex;
+  height:100%;
+  transition:transform .55s cubic-bezier(.65,0,.35,1);
+}
+.slide{
+  flex:0 0 100%;
+  height:100%;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:38px 32px;
+  overflow:hidden;
+}
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(var(--card-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--card-line) 1px, transparent 1px);
+  background-size:30px 30px;
+  opacity:.5;
+}
+.slide .s-tag{
+  position:relative;
+  font-size:.78rem;
+  letter-spacing:1px;
+  padding:5px 14px;
+  border-radius:999px;
+  margin-bottom:16px;
+}
+.slide h3{position:relative;font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.4;}
+.slide p{position:relative;font-size:.92rem;color:var(--text-dim);max-width:340px;margin-bottom:20px;}
+.slide .btn{position:relative;}
+
+.slide-1{background:radial-gradient(circle at 80% 15%, #FBEFDC 0%, var(--bg-alt) 60%);}
+.slide-1 .s-tag{background:var(--accent-soft);color:var(--accent);}
+.slide-2{background:radial-gradient(circle at 15% 85%, #E5F6F3 0%, var(--bg-alt) 60%);}
+.slide-2 .s-tag{background:var(--teal-soft);color:var(--teal);}
+.slide-3{background:radial-gradient(circle at 85% 85%, #FBEFDC 0%, var(--bg-alt) 60%);}
+.slide-3 .s-tag{background:var(--accent-soft);color:var(--accent);}
+.slide-4{background:radial-gradient(circle at 15% 15%, #E5F6F3 0%, var(--bg-alt) 60%);}
+.slide-4 .s-tag{background:var(--teal-soft);color:var(--teal);}
+
+.slider-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;height:38px;
+  border-radius:50%;
+  border:1px solid var(--card-line);
+  background:rgba(255,255,255,.9);
+  color:var(--text);
+  font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  z-index:5;
+  transition:.2s;
+}
+.slider-arrow:hover{border-color:var(--accent);color:var(--accent);}
+.slider-arrow.prev{left:14px;}
+.slider-arrow.next{right:14px;}
+
+.slider-dots{
+  position:absolute;
+  bottom:16px;left:0;right:0;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  z-index:5;
+}
+.slider-dots button{
+  width:8px;height:8px;
+  border-radius:999px;
+  border:none;
+  background:var(--card-line);
+  cursor:pointer;
+  padding:0;
+  transition:.25s;
+}
+.slider-dots button.active{
+  width:22px;
+  background:var(--accent);
+}
+
+.section-label{
+  display:block;
+  max-width:520px;
+  margin:0 auto 14px;
+  text-align:center;
+  font-size:.82rem;
+  letter-spacing:1px;
+  color:var(--teal);
+}
+.img-slider-section{margin-top:34px;}
+.slide.img-slide{padding:0;}
+.slide.img-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:relative;
+}
+.img-caption{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  padding:34px 20px 44px;
+  background:linear-gradient(to top, rgba(0,0,0,.55), transparent);
+  color:#fff;
+  font-size:.95rem;
+  font-weight:600;
+  text-align:left;
+}
+
+/* ---------- circuit stat rail ---------- */
+.rail-wrap{
+  max-width:1180px;
+  margin:44px auto 0;
+  padding:0 20px;
+  position:relative;
+  z-index:1;
+}
+.rail{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  padding:34px 10px 26px;
+  background:var(--bg-alt);
+  border:1px solid var(--card-line);
+  border-radius:20px;
+}
+.rail::before{
+  content:"";
+  position:absolute;
+  top:50px;left:6%;right:6%;
+  height:2px;
+  background:repeating-linear-gradient(90deg,var(--accent) 0 8px, transparent 8px 14px);
+  opacity:.55;
+}
+.rail-node{
+  text-align:center;
+  position:relative;
+}
+.rail-node .node-dot{
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--bg-alt);
+  border:2px solid var(--accent);
+  margin:0 auto 14px;
+  position:relative;
+  z-index:2;
+}
+.rail-node .node-dot::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  border:1px solid var(--accent);
+  opacity:.4;
+  animation:ring 2.4s infinite;
+}
+.rail-node:nth-child(2) .node-dot::after{animation-delay:.3s;}
+.rail-node:nth-child(3) .node-dot::after{animation-delay:.6s;}
+.rail-node:nth-child(4) .node-dot::after{animation-delay:.9s;}
+@keyframes ring{
+  0%{transform:scale(.6);opacity:.5;}
+  100%{transform:scale(1.6);opacity:0;}
+}
+.rail-node .num{
+  font-size:1.55rem;
+  font-weight:700;
+  color:var(--accent);
+}
+.rail-node .lbl{
+  font-size:.82rem;
+  color:var(--text-dim);
+  margin-top:4px;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .pulse-dot,.rail-node .node-dot::after{animation:none;}
+}
+
+/* ---------- offer banner ---------- */
+.offer{
+  max-width:1180px;
+  margin:52px auto 0;
+  padding:0 20px;
+  position:relative;
+  z-index:1;
+}
+.offer-card{
+  background:radial-gradient(circle at 15% 20%, #FBEFDC 0%, var(--bg-alt) 60%);
+  border:1px solid var(--card-line);
+  border-radius:20px;
+  padding:34px 26px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+.offer-card::before{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  background:var(--accent);
+  filter:blur(90px);
+  opacity:.12;
+  top:-60px;right:-40px;
+  border-radius:50%;
+}
+.offer-tag{
+  display:inline-block;
+  background:var(--teal-soft);
+  color:var(--teal);
+  font-size:.75rem;
+  letter-spacing:1px;
+  padding:5px 12px;
+  border-radius:999px;
+  margin-bottom:14px;
+}
+.offer-card h2{
+  font-size:1.35rem;
+  font-weight:700;
+  margin-bottom:6px;
+  color:var(--text);
+}
+.offer-card .price{
+  font-size:2.4rem;
+  font-weight:700;
+  color:var(--accent);
+  margin:12px 0 4px;
+}
+.offer-card .price span{font-size:1.1rem;color:var(--text-dim);font-weight:500;}
+.offer-card .sub{color:var(--text-dim);font-size:.9rem;margin-bottom:20px;}
+
+/* ---------- page preview cards ---------- */
+.section-head{
+  max-width:1180px;
+  margin:64px auto 26px;
+  padding:0 20px;
+}
+.section-head .tag{
+  font-size:.82rem;
+  color:var(--teal);
+  letter-spacing:1px;
+  margin-bottom:8px;
+  display:block;
+}
+.section-head h2{font-size:1.5rem;font-weight:700;color:var(--text);}
+
+.cards{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 20px 10px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+}
+.pcard{
+  background:var(--card);
+  border:1px solid var(--card-line);
+  border-radius:var(--radius);
+  padding:22px 18px;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+  position:relative;
+}
+.pcard:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 24px -12px rgba(22,35,59,.15);}
+.pcard .icon-wrap{
+  width:44px;height:44px;
+  border-radius:10px;
+  background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+}
+.pcard h3{font-size:1.02rem;font-weight:700;margin-bottom:8px;color:var(--text);}
+.pcard p{font-size:.85rem;color:var(--text-dim);margin-bottom:14px;}
+.pcard .go{font-size:.85rem;color:var(--accent);font-weight:600;}
+
+/* ---------- mentors strip ---------- */
+.mentor-strip{
+  max-width:1180px;
+  margin:70px auto 0;
+  padding:0 20px;
+}
+.mentor-strip .strip-card{
+  background:var(--bg-alt);
+  border:1px solid var(--card-line);
+  border-radius:20px;
+  padding:32px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.mentor-strip h2{font-size:1.3rem;font-weight:700;max-width:480px;color:var(--text);}
+.mentor-strip p{color:var(--text-dim);font-size:.92rem;margin-top:8px;max-width:480px;}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:80px;
+  border-top:1px solid var(--card-line);
+  background:var(--bg-alt);
+}
+.footer-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 20px 26px;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:30px;
+}
+.footer-inner h4{font-size:.95rem;margin-bottom:14px;color:var(--text);}
+.footer-inner a,.footer-inner p{color:var(--text-dim);font-size:.88rem;}
+.footer-inner ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.foot-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.1rem;margin-bottom:10px;color:var(--text);}
+.copyright{
+  text-align:center;
+  font-size:.8rem;
+  color:var(--text-dim);
+  border-top:1px solid var(--card-line);
+  padding:16px 20px 26px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:920px){
+  nav.main-nav{display:none;}
+  .lms-btn.desktop-only{display:none;}
+  .burger{display:flex;}
+  .feature-grid{grid-template-columns:1fr;max-width:100%;}
+  .rail{grid-template-columns:repeat(2,1fr);row-gap:26px;}
+  .rail::before{display:none;}
+  .cards{grid-template-columns:repeat(2,1fr);}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  h1{font-size:1.6rem;}
+  .cards{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .offer-card .price{font-size:1.9rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-and-lms">
+      <a href="index.html" class="logo">
+        <span class="logo-text">বর্তনী একাডেমি</span>
+      </a>
+      <a href="#" class="lms-btn desktop-only">বর্তনী LMS</a>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" class="active">হোম পেইজ</a>
+      <a href="freeclass.html">ফ্রি ক্লাস সমূহ</a>
+      <a href="course.html">কোর্স সমূহ</a>
+      <a href="exam.html">অনলাইন পরীক্ষা</a>
+      <a href="pub.html">পাবলিকেশন</a>
+      <a href="mentor.html">মেন্টরগণ</a>
+    </nav>
+
+    <button class="burger" onclick="document.getElementById('mobileNav').style.display = document.getElementById('mobileNav').style.display==='flex' ? 'none' : 'flex';">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileNav">
+    <a href="index.html" class="active">হোম পেইজ</a>
+    <a href="freeclass.html">ফ্রি ক্লাস সমূহ</a>
+    <a href="course.html">কোর্স সমূহ</a>
+    <a href="exam.html">অনলাইন পরীক্ষা</a>
+    <a href="pub.html">পাবলিকেশন</a>
+    <a href="mentor.html">মেন্টরগণ</a>
+    <a href="#" class="lms-btn">বর্তনী LMS</a>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="eyebrow"><span class="pulse-dot"></span> ভর্তি পরীক্ষার প্রস্তুতি, লাইভ ক্লাসে</span>
+  <h1>তোমার স্বপ্নের <span class="accent-text">সার্কিট</span> সম্পূর্ণ করি আমরা</h1>
+  <p class="lead">বর্তনী একাডেমিতে স্বাগতম — যেখানে প্রতিটি শিক্ষার্থীর প্রতিভা একটি সম্পূর্ণ সার্কিটের মতো নিরবচ্ছিন্নভাবে সচল হয়। সঠিক মেন্টর, সঠিক রুটিন আর সঠিক প্র্যাকটিসে গড়ে ওঠে তোমার ভর্তি-প্রস্তুতির নিখুঁত পথ।</p>
+
+  <ul class="feature-grid">
+    <li>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#0E9488" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#0E9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      অভিজ্ঞ ও দক্ষ মেন্টর প্যানেল
+    </li>
+    <li>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#0E9488" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#0E9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      প্রতি সপ্তাহে ফ্রি লাইভ ক্লাস
+    </li>
+    <li>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#0E9488" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#0E9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      নিয়মিত মডেল টেস্ট ও র‍্যাংকিং
+    </li>
+    <li>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#0E9488" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#0E9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      নিজস্ব বই ও প্রশ্নব্যাংক প্রকাশনা
+    </li>
+  </ul>
+
+  <div class="hero-cta">
+    <a href="course.html" class="btn btn-primary">কোর্সগুলো দেখুন →</a>
+    <a href="exam.html" class="btn btn-secondary">অনলাইন পরীক্ষা দিন</a>
+  </div>
+</section>
+
+<div class="slider-wrap">
+  <div class="slider" id="mainSlider">
+    <div class="slides" id="slides">
+      <div class="slide">
+        <div>
+          <span class="slide-tag">ভর্তি অফার</span>
+          <h3>জুলাই ব্যাচে ভর্তিতে বিশেষ ছাড়</h3>
+          <p>৩১ জুলাই পর্যন্ত সকল কোর্সে আকর্ষণীয় ছাড় — বাংলা ও ইংরেজি মাধ্যম, দেশব্যাপী সকল শাখায়।</p>
+          <a href="course.html" class="btn btn-primary slide-btn">কোর্স দেখুন →</a>
+        </div>
+        <div class="slide-visual">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l3.5 6.9L22 11l-5 4.6L18.2 22 12 18.6 5.8 22 7 15.6 2 11l6.5-1.1L12 3z" stroke="#C1740A" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="slide">
+        <div>
+          <span class="slide-tag">ফ্রি ক্লাস</span>
+          <h3>প্রতি শুক্রবার লাইভ ফ্রি ক্লাস</h3>
+          <p>বিষয়ভিত্তিক অভিজ্ঞ মেন্টরদের সাথে সরাসরি ক্লাসে যোগ দাও, প্রশ্ন করো, দ্রুত সমাধান পাও।</p>
+          <a href="freeclass.html" class="btn btn-primary slide-btn">ফ্রি ক্লাস দেখুন →</a>
+        </div>
+        <div class="slide-visual">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v10H8l-3 3V5z" stroke="#C1740A" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="slide">
+        <div>
+          <span class="slide-tag">অনলাইন পরীক্ষা</span>
+          <h3>নতুন মডেল টেস্ট প্রকাশিত হয়েছে</h3>
+          <p>নিজের প্রস্তুতি যাচাই করো, দেশব্যাপী র‍্যাংকিং-এ নিজের অবস্থান দেখো এখনই।</p>
+          <a href="exam.html" class="btn btn-primary slide-btn">পরীক্ষা দাও →</a>
+        </div>
+        <div class="slide-visual">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#C1740A" stroke-width="1.3"/><path d="M8 9h8M8 13h5" stroke="#C1740A" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+    <button class="slide-arrow prev" aria-label="আগের স্লাইড" onclick="moveSlide(-1)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#16233B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="slide-arrow next" aria-label="পরের স্লাইড" onclick="moveSlide(1)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#16233B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="slide-dots" id="slideDots"></div>
+</div>
+
+<section class="slider-section">
+  <div class="slider" id="heroSlider">
+    <div class="slider-track">
+      <div class="slide slide-1">
+        <span class="s-tag">ভর্তি অফার</span>
+        <h3>জুলাই ব্যাচে বিশেষ ছাড়</h3>
+        <p>৩১ জুলাই পর্যন্ত সকল কোর্সে ভর্তিতে বিশেষ ছাড় — বাংলা ও ইংরেজি মাধ্যম।</p>
+        <a href="course.html" class="btn btn-primary">ভর্তি হও →</a>
+      </div>
+      <div class="slide slide-2">
+        <span class="s-tag">ফ্রি ক্লাস</span>
+        <h3>প্রতি সপ্তাহে ফ্রি লাইভ ক্লাস</h3>
+        <p>বিষয়ভিত্তিক দক্ষ মেন্টরদের সাথে সরাসরি ক্লাসে যুক্ত হও, সম্পূর্ণ ফ্রিতে।</p>
+        <a href="freeclass.html" class="btn btn-secondary">ক্লাস দেখুন →</a>
+      </div>
+      <div class="slide slide-3">
+        <span class="s-tag">অনলাইন পরীক্ষা</span>
+        <h3>মডেল টেস্টে যাচাই করো নিজেকে</h3>
+        <p>নিয়মিত মডেল টেস্ট দিয়ে জানো তোমার প্রস্তুতি ও দেশব্যাপী র‍্যাংক।</p>
+        <a href="exam.html" class="btn btn-primary">পরীক্ষা দাও →</a>
+      </div>
+      <div class="slide slide-4">
+        <span class="s-tag">পাবলিকেশন</span>
+        <h3>নিজস্ব বই ও প্রশ্নব্যাংক</h3>
+        <p>একাডেমির নিজস্ব প্রকাশনার বই ও গাইড দিয়ে করো সুসংগঠিত প্রস্তুতি।</p>
+        <a href="pub.html" class="btn btn-secondary">বই দেখুন →</a>
+      </div>
+    </div>
+    <button class="slider-arrow prev" aria-label="আগের স্লাইড">‹</button>
+    <button class="slider-arrow next" aria-label="পরের স্লাইড">›</button>
+    <div class="slider-dots"></div>
+  </div>
+</section>
+
+<section class="slider-section img-slider-section">
+  <span class="section-label">ছবিতে বর্তনী একাডেমি</span>
+  <div class="slider" id="imgSlider">
+    <div class="slider-track">
+      <div class="slide img-slide">
+        <img src="https://picsum.photos/seed/bartoni1/900/900" alt="ক্লাসরুমে শিক্ষার্থীদের পাঠদান">
+        <div class="img-caption">লাইভ ক্লাসে মনোযোগী শিক্ষার্থীরা</div>
+      </div>
+      <div class="slide img-slide">
+        <img src="https://picsum.photos/seed/bartoni2/900/900" alt="মেন্টরের সাথে আলোচনা">
+        <div class="img-caption">মেন্টরদের সরাসরি গাইডলাইন</div>
+      </div>
+      <div class="slide img-slide">
+        <img src="https://picsum.photos/seed/bartoni3/900/900" alt="পরীক্ষার হলে শিক্ষার্থীরা">
+        <div class="img-caption">মডেল টেস্টে অংশগ্রহণ</div>
+      </div>
+      <div class="slide img-slide">
+        <img src="https://picsum.photos/seed/bartoni4/900/900" alt="গ্রন্থাগারে বই নিয়ে পড়াশোনা">
+        <div class="img-caption">নিজস্ব প্রকাশনার বই ও গাইড</div>
+      </div>
+    </div>
+    <button class="slider-arrow prev" aria-label="আগের স্লাইড">‹</button>
+    <button class="slider-arrow next" aria-label="পরের স্লাইড">›</button>
+    <div class="slider-dots"></div>
+  </div>
+</section>
+
+<div class="rail-wrap">
+  <div class="rail">
+    <div class="rail-node"><div class="node-dot"></div><div class="num">50k+</div><div class="lbl">সক্রিয় শিক্ষার্থী</div></div>
+    <div class="rail-node"><div class="node-dot"></div><div class="num">120+</div><div class="lbl">বিশেষজ্ঞ মেন্টর</div></div>
+    <div class="rail-node"><div class="node-dot"></div><div class="num">300+</div><div class="lbl">লাইভ ক্লাস মাসে</div></div>
+    <div class="rail-node"><div class="node-dot"></div><div class="num">92%</div><div class="lbl">চান্স প্রাপ্তির হার</div></div>
+  </div>
+</div>
+
+<div class="offer">
+  <div class="offer-card">
+    <span class="offer-tag">ভর্তি অফার · সীমিত সময়ের জন্য</span>
+    <h2>জুলাই ব্যাচে ভর্তি চলছে</h2>
+    <p class="sub">৩১ জুলাই পর্যন্ত সকল কোর্সে বিশেষ ছাড় — বাংলা ও ইংরেজি মাধ্যম, দেশব্যাপী সকল শাখায়</p>
+    <div class="price">৳৳ ছাড় <span>প্রতি কোর্সে</span></div>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="course.html" class="btn btn-primary">এখনই ভর্তি হও</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-head">
+  <span class="tag">নেভিগেট করো</span>
+  <h2>একাডেমির সব কিছু, এক জায়গায়</h2>
+</div>
+
+<div class="cards">
+  <div class="pcard">
+    <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12l7-7 7 7M6 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9" stroke="#C1740A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h3>হোম পেইজ</h3>
+    <p>একাডেমির সার্বিক পরিচিতি ও সর্বশেষ আপডেট।</p>
+    <a class="go" href="index.html">দেখুন →</a>
+  </div>
+  <div class="pcard">
+    <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 5h14v10H8l-3 3V5z" stroke="#C1740A" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+    <h3>ফ্রি ক্লাস সমূহ</h3>
+    <p>প্রতি সপ্তাহে বিষয়ভিত্তিক ফ্রি লাইভ ক্লাসে যোগ দাও।</p>
+    <a class="go" href="freeclass.html">দেখুন →</a>
+  </div>
+  <div class="pcard">
+    <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#C1740A" stroke-width="1.7"/><path d="M8 9h8M8 13h5" stroke="#C1740A" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+    <h3>কোর্স সমূহ</h3>
+    <p>সম্পূর্ণ ভর্তি-প্রস্তুতি প্রোগ্রাম ও প্যাকেজ কোর্স।</p>
+    <a class="go" href="course.html">দেখুন →</a>
+  </div>
+  <div class="pcard">
+    <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l3.5 6.9L22 11l-5 4.6L18.2 22 12 18.6 5.8 22 7 15.6 2 11l6.5-1.1L12 3z" stroke="#C1740A" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+    <h3>অনলাইন পরীক্ষা</h3>
+    <p>মডেল টেস্ট দিয়ে যাচাই করো নিজের প্রস্তুতি ও র‍্যাংক।</p>
+    <a class="go" href="exam.html">দেখুন →</a>
+  </div>
+  <div class="pcard">
+    <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 4h9l3 3v13H6V4z" stroke="#C1740A" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 10h6M9 14h6" stroke="#C1740A" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+    <h3>পাবলিকেশন</h3>
+    <p>একাডেমির নিজস্ব বই, গাইড ও প্রশ্নব্যাংক।</p>
+    <a class="go" href="pub.html">দেখুন →</a>
+  </div>
+</div>
+
+<div class="mentor-strip">
+  <div class="strip-card">
+    <div>
+      <h2>যাদের হাত ধরে এগিয়ে যাবে তোমার প্রস্তুতি</h2>
+      <p>দক্ষ ও অভিজ্ঞ মেন্টর প্যানেলের সাথে পরিচিত হও, যারা প্রতিটি ব্যাচকে ব্যক্তিগতভাবে গাইড করেন।</p>
+    </div>
+    <a href="mentor.html" class="btn btn-primary">মেন্টরদের দেখুন →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="foot-logo">বর্তনী একাডেমি</div>
+      <p>ভর্তি পরীক্ষার প্রস্তুতিতে একটি নিরবচ্ছিন্ন সার্কিট — মেন্টর, ক্লাস, পরীক্ষা ও প্রকাশনা এক জায়গায়।</p>
+    </div>
+    <div>
+      <h4>কুইক লিংক</h4>
+      <ul>
+        <li><a href="index.html">হোম পেইজ</a></li>
+        <li><a href="freeclass.html">ফ্রি ক্লাস সমূহ</a></li>
+        <li><a href="course.html">কোর্স সমূহ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>আরও দেখুন</h4>
+      <ul>
+        <li><a href="exam.html">অনলাইন পরীক্ষা</a></li>
+        <li><a href="pub.html">পাবলিকেশন</a></li>
+        <li><a href="mentor.html">মেন্টরগণ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>যোগাযোগ</h4>
+      <ul>
+        <li>ঢাকা, বাংলাদেশ</li>
+        <li>info@bartoniacademy.com</li>
+        <li>+৮৮০ ১৭ ৩২৯৮৬০৩</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">© ২০২৬ বর্তনী একাডেমি — সর্বস্বত্ব সংরক্ষিত।</div>
+</footer>
+
+<script>
+(function(){
+  var slidesEl = document.getElementById('slides');
+  var dotsEl = document.getElementById('slideDots');
+  var total = slidesEl.children.length;
+  var current = 0;
+  var timer;
+
+  for (var i = 0; i < total; i++){
+    var b = document.createElement('button');
+    if (i === 0) b.className = 'active';
+    b.setAttribute('aria-label', 'স্লাইড ' + (i+1));
+    b.onclick = (function(idx){ return function(){ goTo(idx); }; })(i);
+    dotsEl.appendChild(b);
+  }
+
+  function update(){
+    slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+    var dots = dotsEl.children;
+    for (var i = 0; i < dots.length; i++){
+      dots[i].className = (i === current) ? 'active' : '';
+    }
+  }
+
+  function goTo(idx){
+    current = (idx + total) % total;
+    update();
+    restart();
+  }
+
+  window.moveSlide = function(dir){ goTo(current + dir); };
+
+  function restart(){
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo(current + 1); }, 5000);
+  }
+
+  var startX = 0;
+  var slider = document.getElementById('mainSlider');
+  slider.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  slider.addEventListener('touchend', function(e){
+    var diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) > 40){ goTo(current + (diff < 0 ? 1 : -1)); }
+  }, {passive:true});
+
+  slider.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  slider.addEventListener('mouseleave', restart);
+
+  update();
+  restart();
+})();
+</script>
+<script>
+(function(){
+  function initSlider(rootId){
+    var slider = document.getElementById(rootId);
+    if (!slider) return;
+    var track = slider.querySelector('.slider-track');
+    var slides = track.children;
+    var dotsWrap = slider.querySelector('.slider-dots');
+    var prevBtn = slider.querySelector('.slider-arrow.prev');
+    var nextBtn = slider.querySelector('.slider-arrow.next');
+    var index = 0;
+    var timer;
+
+    for (var i = 0; i < slides.length; i++) {
+      var d = document.createElement('button');
+      if (i === 0) d.className = 'active';
+      d.setAttribute('aria-label', 'স্লাইড ' + (i + 1));
+      d.addEventListener('click', function(idx){ return function(){ goTo(idx); }; }(i));
+      dotsWrap.appendChild(d);
+    }
+    var dots = dotsWrap.children;
+
+    function render(){
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      for (var i = 0; i < dots.length; i++){
+        dots[i].className = (i === index) ? 'active' : '';
+      }
+    }
+    function goTo(i){
+      index = (i + slides.length) % slides.length;
+      render();
+      resetTimer();
+    }
+    function next(){ goTo(index + 1); }
+    function prev(){ goTo(index - 1); }
+    function resetTimer(){
+      clearInterval(timer);
+      timer = setInterval(next, 4500);
+    }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+
+    slider.addEventListener('mouseenter', function(){ clearInterval(timer); });
+    slider.addEventListener('mouseleave', resetTimer);
+
+    var touchStartX = 0;
+    slider.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+    slider.addEventListener('touchend', function(e){
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+    }, {passive:true});
+
+    render();
+    resetTimer();
+  }
+
+  initSlider('heroSlider');
+  initSlider('imgSlider');
+})();
+</script>
+</body>
+</html>
